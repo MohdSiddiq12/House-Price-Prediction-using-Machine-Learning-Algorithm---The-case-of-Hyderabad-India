@@ -4,13 +4,15 @@ from tkinter import messagebox
 import joblib
 
 # Function to convert square feet to gaj
+#If someone does not understands square feet's 
+#using this function they can understand gaj in square terms
 def square_to_gaj():
     try:
         # Get the input value from the Entry widget
         square_feet = float(sqft_entry.get())
         
         # Calculate gaj (1 gaj = 9 square feet)
-        gaj = square_feet * 9
+        gaj = square_feet * 9 
         
         # Display the result in the label
         label_result.config(text="{} Square feet is equal to {} gaj".format(square_feet, gaj))
