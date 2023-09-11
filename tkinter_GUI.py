@@ -1,76 +1,64 @@
-# Import necessary libraries
 import tkinter as tk
 from tkinter import messagebox
 import joblib
 
-# Function to convert square feet to gaj
-#If someone does not understands square feet's 
-#using this function they can understand gaj in square terms
-def square_to_gaj():
-    try:
-        # Get the input value from the Entry widget
-        square_feet = float(sqft_entry.get())
+class SquareToGajConverter:
+    def __init__(self, root):
+        self.root = root
+        root.title("Linear Regression Predictor")
         
-        # Calculate gaj (1 gaj = 9 square feet)
-        gaj = square_feet * 9 
-        
-        # Display the result in the label
-        label_result.config(text="{} Square feet is equal to {} gaj".format(square_feet, gaj))
-    except ValueError:
-        # Display an error message if the input is not a valid number
-        messagebox.showerror("Error", "Please enter a valid number")
+        # Square to Gaj Conversion Section
+        self.create_square_to_gaj_section()
 
-# Function to make a prediction using a saved machine learning model
-def predict():
-    try:
-        # Load the saved machine learning model
-        model = joblib.load('linear_regression_model_real_estate.pkl')
+        # Prediction Section
+        self.create_prediction_section()
 
-        # Get user input values from Entry widgets
-        input_values = [float(entry_x.get()) for entry_x in entry_x_list]
+    def create_square_to_gaj_section(self):
+        sqft_label = tk.Label(self.root, text="Square Feet:")
+        self.sqft_entry = tk.Entry(self.root)
+        convert_button = tk.Button(self.root, text="Convert", command=self.square_to_gaj)
+        self.label_result = tk.Label(self.root, text=" ")
 
-        # Use the model to make a prediction
-        predicted_output = model.predict([input_values])
+        sqft_label.pack()
+        self.sqft_entry.pack()
+        convert_button.pack()
+        self.label_result.pack()
 
-        # Display the predicted output
-        predicted_label.config(text=f'Predicted Output: {predicted_output[0]}')
-    except Exception as e:
-        # Display an error message if an exception occurs during prediction
-        predicted_label.config(text=f'Error: {str(e)}')
+    def square_to_gaj(self):
+        try:
+            square_feet = float(self.sqft_entry.get())
+            gaj = square_feet * 9
+            self.label_result.config(text="{} Square feet is equal to {} gaj".format(square_feet, gaj))
+        except ValueError:
+            messagebox.showerror("Error", "Please enter a valid number")
 
-# Create the main application window
-root = tk.Tk()
-root.title("Linear Regression Predictor")
+    def create_prediction_section(self):
+        input_labels = ["X1:", "X2:", "X3:", "X4:", "X5:", "X6:"]
+        self.entry_x_list = []
 
-# Square to Gaj Conversion Section
-sqft_label = tk.Label(text="Square Feet:")
-sqft_entry = tk.Entry()
-convert_button = tk.Button(text="Convert", command=square_to_gaj)
-label_result = tk.Label(text=" ")
+        for label_text in input_labels:
+            label = tk.Label(self.root, text=label_text)
+            entry = tk.Entry(self.root)
+            self.entry_x_list.append(entry)
+            label.pack()
+            entry.pack()
 
-sqft_label.pack()
-sqft_entry.pack()
-convert_button.pack()
-label_result.pack()
+        predict_button = tk.Button(self.root, text="Predict", command=self.predict)
+        self.predicted_label = tk.Label(self.root, text="Predicted Output: ")
 
-# Prediction Section
-input_labels = ["X1:", "X2:", "X3:", "X4:", "X5:", "X6:"]
-entry_x_list = []
+        predict_button.pack()
+        self.predicted_label.pack()
 
-# Create Entry widgets for user input and labels for description
-for label_text in input_labels:
-    label = tk.Label(root, text=label_text)
-    entry = tk.Entry(root)
-    entry_x_list.append(entry)
-    label.pack()
-    entry.pack()
+    def predict(self):
+        try:
+            model = joblib.load('linear_regression_model_real_estate.pkl')
+            input_values = [float(entry.get()) for entry in self.entry_x_list]
+            predicted_output = model.predict([input_values])
+            self.predicted_label.config(text=f'Predicted Output: {predicted_output[0]}')
+        except Exception as e:
+            self.predicted_label.config(text=f'Error: {str(e)}')
 
-# Create a button to trigger prediction and a label to display the result
-predict_button = tk.Button(root, text="Predict", command=predict)
-predicted_label = tk.Label(root, text="Predicted Output: ")
-
-predict_button.pack()
-predicted_label.pack()
-
-# Start the main application loop
-root.mainloop()
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = SquareToGajConverter(root)
+    root.mainloop()
