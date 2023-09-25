@@ -5,7 +5,7 @@ import joblib
 def square_to_gaj():
     try:
         square_feet = float(sqft_entry.get())
-        gaj = square_feet *  9
+        gaj = square_feet * 9
         label_result.config(text="{} Square feet is equal to {} gaj".format(square_feet, gaj))
     except ValueError:
         messagebox.showerror("Error", "Please enter a valid number")
@@ -31,7 +31,6 @@ root.geometry("1920x1080")
 root.configure(bg='#333333')
 root.title("Linear Regression Predictor")
 
-
 # Square to Gaj Conversion
 sqft_label = tk.Label(text="Square Feet:")
 sqft_entry = tk.Entry()
@@ -44,7 +43,7 @@ convert_button.pack()
 label_result.pack()
 
 # Prediction
-input_labels = ["X1:", "X2:", "X3:", "X4:", "X5:", "X6:"]
+input_labels = ["X4:", "X5:", "X6:", "X1:", "X2:", "X3:"]
 entry_x_list = []
 
 for label_text in input_labels:
