@@ -32,31 +32,32 @@ root.configure(bg='#333333')
 root.title("Linear Regression Predictor")
 
 # Square to Gaj Conversion
-sqft_label = tk.Label(text="Square Feet:")
-sqft_entry = tk.Entry()
-convert_button = tk.Button(text="Convert", command=square_to_gaj)
-label_result = tk.Label(text=" ")
+sqft_label = tk.Label(root, text="Square Feet:")
+sqft_entry = tk.Entry(root)
+convert_button = tk.Button(root, text="Convert", command=square_to_gaj)
+label_result = tk.Label(root, text=" ")
 
-sqft_label.pack()
-sqft_entry.pack()
-convert_button.pack()
-label_result.pack()
+sqft_label.grid(row=0, column=0, padx=10, pady=5)
+sqft_entry.grid(row=0, column=1, padx=10, pady=5)
+convert_button.grid(row=0, column=2, padx=10, pady=5)
+label_result.grid(row=1, column=0, columnspan=3, padx=10, pady=5)
 
 # Prediction
-input_labels = ["X4:", "X5:", "X6:", "X1:", "X2:", "X3:"]
+input_labels = ["X1:", "X2:", "X3:", "X4:", "X5:", "X6:"]
 entry_x_list = []
 
-for label_text in input_labels:
+for i, label_text in enumerate(input_labels):
     label = tk.Label(root, text=label_text)
     entry = tk.Entry(root)
     entry_x_list.append(entry)
-    label.pack()
-    entry.pack()
+
+    label.grid(row=i + 2, column=0, padx=10, pady=5)
+    entry.grid(row=i + 2, column=1, padx=10, pady=5)
 
 predict_button = tk.Button(root, text="Predict", command=predict)
 predicted_label = tk.Label(root, text="Predicted Output: ")
 
-predict_button.pack()
-predicted_label.pack()
+predict_button.grid(row=len(input_labels) + 2, column=0, columnspan=2, padx=10, pady=5)
+predicted_label.grid(row=len(input_labels) + 2, column=2, padx=10, pady=5)
 
 root.mainloop()
