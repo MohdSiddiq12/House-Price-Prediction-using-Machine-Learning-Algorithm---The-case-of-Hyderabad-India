@@ -33,7 +33,7 @@ root.title("Linear Regression Predictor")
 
 # Square to Gaj Conversion
 sqft_label = tk.Label(root, text="Square Feet:")
-sqft_entry = tk.Entry(root)
+sqft_entry = tk.Entry(root, width=20)
 convert_button = tk.Button(root, text="Convert", command=square_to_gaj)
 label_result = tk.Label(root, text=" ")
 
@@ -48,7 +48,7 @@ entry_x_list = []
 
 for i, label_text in enumerate(input_labels):
     label = tk.Label(root, text=label_text)
-    entry = tk.Entry(root)
+    entry = tk.Entry(root,highlightthickness=10,width=20)
     entry_x_list.append(entry)
 
     label.grid(row=i + 2, column=0, padx=10, pady=5)
