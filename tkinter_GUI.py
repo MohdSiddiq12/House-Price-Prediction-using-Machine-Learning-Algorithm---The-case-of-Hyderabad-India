@@ -27,7 +27,7 @@ def predict():
         predicted_label.config(text=f'Error: {str(e)}')
 
 root = tk.Tk()
-root.geometry("800x600")
+root.geometry("800x700")
 root.configure(bg='#333333')
 root.title("Linear Regression Predictor")
 
