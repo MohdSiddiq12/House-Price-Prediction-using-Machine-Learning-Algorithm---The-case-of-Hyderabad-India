@@ -43,7 +43,7 @@ convert_button.grid(row=0, column=2, padx=10, pady=5)
 label_result.grid(row=1, column=0, columnspan=3, padx=10, pady=5)
 
 # Prediction
-input_labels = ["X1:", "X2:", "X3:", "X4:", "X5:", "X6:"]
+input_labels = ["X2:", "X2:", "X3:", "X4:", "X5:", "X6:"]
 entry_x_list = []
 
 for i, label_text in enumerate(input_labels):
