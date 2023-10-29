@@ -51,7 +51,7 @@ def predict():
         predicted_label.config(text=f'Error: {str(e)}')
 
 root = tk.Tk()
-root.geometry("800x600")
+root.geometry("600x500")
 root.title("Linear Regression Predictor")
 
 # Labels and Entry widgets for features
