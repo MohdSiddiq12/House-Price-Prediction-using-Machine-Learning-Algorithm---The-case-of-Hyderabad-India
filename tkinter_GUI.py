@@ -20,7 +20,7 @@ def preprocess_input(locality_encoder, input_data):
 def predict():
     try:
         # Load the saved model
-        model = load('House_price_prediction.joblib')
+        model = load('House_Price_Prediction Using Machine_Learning_Algorithm.joblib')
         
         # Load the fitted label encoders
         with open('label_encoders.pkl', 'rb') as file:
@@ -51,7 +51,7 @@ def predict():
         predicted_label.config(text=f'Error: {str(e)}')
 
 root = tk.Tk()
-root.geometry("600x500")
+root.geometry("1500x900")
 root.title("Linear Regression Predictor")
 
 # Labels and Entry widgets for features
