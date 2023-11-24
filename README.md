@@ -1,4 +1,4 @@
-# Housing Price Prediction Project
+# House Price Prediction Using Machine Learning ALgorithm--The-Case-Of-Hyderabad-India
 
 ## Overview
 
