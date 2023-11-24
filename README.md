@@ -30,3 +30,11 @@ To use the housing price prediction tool:
    ```bash
    pip install -r requirements.txt
 
+
+Run the Application: Execute the application and interact with the user-friendly interface to get accurate housing price predictions.
+Dataset
+The project utilizes the Real Estate Hyderabad dataset, which is included in the repository for reference. The dataset plays a crucial role in training the Gradient Boosting Regressor algorithm.
+
+
+For detailed information on installation, usage, and contribution guidelines, please refer to the documentation.
+
