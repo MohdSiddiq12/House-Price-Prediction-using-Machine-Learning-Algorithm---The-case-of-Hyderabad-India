@@ -57,7 +57,7 @@
 
   
 
-  <p>For detailed information on installation, usage, and contribution guidelines, please refer to the [documentation](docs/README.md).</p>
+  <p>For detailed information on installation, usage,please refer to the Zip/Documentation.</p>
 </body>
 
 </html>
