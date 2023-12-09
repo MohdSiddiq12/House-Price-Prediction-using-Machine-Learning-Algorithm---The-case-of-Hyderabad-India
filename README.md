@@ -50,7 +50,7 @@
   <h2>📊 Dataset</h2>
   <p>The project utilizes the Real Estate Hyderabad dataset, which is included in the repository for reference. The dataset plays a crucial role in training the Gradient Boosting Regressor algorithm.</p>
 
-  <h2>👥 Contributors</h2>
+  <h2>👥 Author</h2>
   <ul>
     <li>Mohammed Siddiq</li>
   </ul>
