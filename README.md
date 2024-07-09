@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <h1>🏡 House Price Prediction Using Machine Learning Algorithm--The-Case-of-Hyderabad-India</h1>
+  <h1>🏡 House Price Prediction Using Machine Learning Algorithm--The-Case-of-Hyderabad-India.</h1>
 
   <h2>🌐 Overview</h2>
   <p>This project is dedicated to addressing the challenge of accurately predicting housing prices, a critical aspect for both clients and property dealers. With housing prices exhibiting a consistent upward trend annually, the need for reliable predictions becomes paramount. Conventional methods often prove intricate, posing challenges for individuals lacking expertise in the field. To overcome these challenges, this project leverages a Gradient Boosting Regressor Algorithm, utilizing data from the Real Estate Hyderabad dataset.</p>
